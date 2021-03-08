@@ -20,6 +20,7 @@ An analog circuit could be constructed to convert the 0-5 volts into the proper 
 The [Adafruit Trinket](https://www.adafruit.com/product/1501) is a $6 processor that is powered by a 5-16 volt input, has an input pin that reads precisely 0-5 volts on an input pin, can communicate with another simple chip via [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface), and can provide that other chip with a stabilized 5 volts. Note that the [Trinket M0](https://www.adafruit.com/product/3500) might work and is radically easier to load code to, but it's only a 3 volt chip and other components would have to be used to translate the 0-5 volt into the 0-3 volt analog input.
 
 [Trinket Pinouts](https://learn.adafruit.com/introducing-trinket/pinouts)
+
 ![pin outs](https://cdn-learn.adafruit.com/assets/assets/000/025/645/large1024/trinket5.png?1432753823)
 
 The [MCP4151-103E/P](https://www.digikey.com/en/products/detail/microchip-technology/MCP4151-103E-P/1874217) is an SPI controlled 10k ohm potentiometer in a single chip. (I picked up a [5-pack on Amazon.com](https://www.amazon.com/gp/product/B00LVKK472) for $6, but it can be found at [other sources](https://www.mouser.com/ProductDetail/Microchip-Technology/MCP4151-103E-P?qs=hH%252BOa0VZEiCcBDYaXnd0Yg%3D%3D). Make sure you buy at least two - I melted my first one by reversing the polarity!)
