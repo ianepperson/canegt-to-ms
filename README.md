@@ -29,7 +29,17 @@ Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in s
 
 ### Wiring
 
+If you haven't done any electronics tinkering and don't already have a handy set of boards, headers and terminals, it's not a bad idea to pick up [a kit](https://www.amazon.com/s?k=pcb+board+kit).
+
+You'll need 4 connections for external wiring.
+
+ - Switched 12v input. This will wire directly to the Trinket's "battery" input.
+ - Ground.
+ - 0-5 volt sensor input.
+ - Variable resistance output.
+
 ### Software
 
+Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to connect to the Trinket via USB and load the program. View the file here: [canegt-2-ms.ino](canegt-2-ms.ino), and download it with the [raw link](https://raw.githubusercontent.com/ianepperson/canegt-to-ms/main/canegt-2-ms.ino).
 
 
