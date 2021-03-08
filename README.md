@@ -53,6 +53,10 @@ You'll need just 4 more internal wiring connections.
 
 (todo: show a wiring diagram)
 
+Note that the 0-5v sensor input uses the same pin as the Trinket's USB. This means that you cannot connect the USB port and the sensor input at the same time. In practice, this shouldn't be an issue, but if you need to reload code be sure and disconnect the sensor input.
+
+It's best to put everything together with a breadboard first, load the program via USB, then bench test. Once it works as you expect it to, transfer it to the breadboard and solder everything up.
+
 ### Software
 
 Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to connect to the Trinket via USB and load the program. View the file here: [canegt-2-ms.ino](canegt-2-ms.ino), and download it with the [raw link](https://raw.githubusercontent.com/ianepperson/canegt-to-ms/main/canegt-2-ms.ino).
