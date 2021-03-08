@@ -60,3 +60,6 @@ Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to conne
 
 ## Finished product
 
+![Final product](CANEGT-2-MS%20final.JPG)
+
+It's small enough that I just slipped it into a heat-shrink tube to seal it up, and it's light enough that I just tuck it in with my car's wiring.
