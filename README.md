@@ -7,11 +7,11 @@ The [CAN-EGT device](https://thedubshop.com/can-egt/) is fantastic in that it re
 
 ## The Problem
 
-The CAN-EGT provides a 0-5 volt output signal for each of its inputs. 0 volts is 0 degrees C and 5 volts is either 1250 degrees C for an EGT setup, or 600 degrees C for a CHT setup. This is a nice, linear output.
+The CAN-EGT provides a 0-5 volt output signal for each of its inputs.  The exact values are configurable via an .ini file, and mine was preconfigured with 0 volts to mean 0 degress F and 5 volts to mean 600 degrees F. The device provides a nice, linear output.
 
-Megasquirt needs a variable resistance to ground, where a high resistance denotes a low temperature and a low resistance denotes a high temperature. The actual values are adjustable in Tuner Studio, but the low temperature must have a higher resistance than the high temperature.
+Megasquirt needs a variable resistance to ground, where a high resistance denotes a low temperature and a low resistance denotes a high temperature. The actual values are adjustable in Tuner Studio, but the low temperature must have a higher resistance than the high temperature. Another way of stating it is that higher temps are denoted with a higher current.
 
-An analog circuit could be constructed to convert the 0-5 volts into the proper resistance to ground, but a tiny microprocessor is cheap and easier to implement.
+An analog circuit could be constructed to convert the 0-5 volts into the proper resistance to ground, but a tiny microprocessor is cheap and easier to implement. The Megasquirt input could be modified to remove the resister stack and then it could just read the 0-5 volts directly, but the Minisquirt board is difficult to modify.
 
 ## The Solution
 
@@ -31,7 +31,7 @@ The [MCP4151-103E/P](https://www.digikey.com/en/products/detail/microchip-techno
 
 (Vdd is 5 volts, Vss is ground)
 
-Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in series with the potentiometer. With the Arduino program in this folder, the CLT line will get a 470 ohm signal to represent 600 degrees C and a 10470 ohm signal will represent 0 degrees C.
+Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in series with the potentiometer. With the Arduino program in this folder, the CLT line will get a 470 ohm signal to represent 600 degrees F and a 10470 ohm signal will represent 0 degrees F.
 
 ### Wiring
 
