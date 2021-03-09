@@ -50,6 +50,8 @@ You'll need 4 connections for external wiring.
 
 Note that the 0-5v sensor input uses the same pin as the Trinket's USB. This means that you cannot connect the USB port and the sensor input at the same time. In practice, this shouldn't be an issue, but if you need to reload code be sure and disconnect the sensor input.
 
+The [Fritzing file](CAN-EGT-2-MS.fzz) (open with [Fritzing](https://fritzing.org/)) is available if you want to print a custom circuit board. (Click the "view raw" link to download).
+
 ### Software
 
 Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to connect to the Trinket via USB and load the program. View the file here: [canegt-2-ms.ino](canegt-2-ms.ino), and download it with the [raw link](https://raw.githubusercontent.com/ianepperson/canegt-to-ms/main/canegt-2-ms.ino).
