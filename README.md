@@ -60,9 +60,9 @@ There's a lot of electrical noise in the engine compartment and the input bounce
 
 ## Finished product
 
-![Final product](CANEGT-2-MS%20final.JPG)
+![Final product](CANEGT-2-MS%20final.jpg)
 
-(Please ignore the hand-scribbled math, I hadn't worked it out properly yet.)
+(AA battery for scale)
 
 It's small enough that I just slipped it into a heat-shrink tube to seal it up, and it's light enough that I just tuck it in with my car's wiring.
 
