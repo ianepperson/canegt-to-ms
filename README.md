@@ -7,7 +7,7 @@ The [CAN-EGT device](https://thedubshop.com/can-egt/) is fantastic in that it re
 
 ## The Problem
 
-The CAN-EGT provides a 0-5 volt output signal for each of its inputs.  The exact values are configurable via an .ini file, and mine was preconfigured with 0 volts to mean 0 degress F and 5 volts to mean 600 degrees F. The device provides a nice, linear output.
+The CAN-EGT provides a 0-5 volt output signal for each of its inputs.  Regardless of what is in the ini file, the output represents 0 to 1250 degrees celcius with 0 volts = 0 degrees C and 5 volts = 1250 degrees C. The device provides a nice, linear output. (The CHT should be at about 175 degrees C normally - 1250 C is past the melting point of aluminum!)
 
 Megasquirt needs a variable resistance to ground, where a high resistance denotes a low temperature and a low resistance denotes a high temperature. The actual values are adjustable in Tuner Studio, but the low temperature must have a higher resistance than the high temperature. Another way of stating it is that higher temps are denoted with a higher current.
 
@@ -33,7 +33,7 @@ The [MCP4151-103E/P](https://www.digikey.com/en/products/detail/microchip-techno
 
 Vdd is 3 or 5 volts (2.7 to 5.5) and Vss is ground.
 
-Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in series with the potentiometer. With the Arduino program in this folder, the CLT line will get a 470 ohm signal to represent 600 degrees F and a 10470 ohm signal will represent 0 degrees F.
+Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in series with the potentiometer. With the Arduino program in this folder, the CLT line will get a 470 ohm signal to represent 1250 degrees C and a 10470 ohm signal will represent 0 degrees C.
 
 ### Wiring
 
@@ -66,12 +66,16 @@ It's small enough that I just slipped it into a heat-shrink tube to seal it up, 
 
 ## TunerStudio
 
-On the "Tools" top menu, select "Calibrate Thermister Tables..." and select the "Coolant Temperature Sensor". Set it to use a "3 Point Therm Generator", then fill in the table with the resister values that your little board is providing.
+On the "Tools" top menu, select "Calibrate Thermister Tables..." and select the "Coolant Temperature Sensor". Set it to use a "3 Point Therm Generator", then fill in the table with the resister values that your little board is providing. You'll need to do a little math here and pick some linear values between 0 and 1270 degrees. The "Bias Resister Value" is the value of the onboard resister on the Megasquirt - likely 2490 ohms.
+
+10000 ohms / 1250 degrees celcius = 8 ohms per degree
+
+Resistance = (10000 - Temperature X 8) + 470 ohms
 
 | Temperature | Resistance |
 | ----------- | ---------- |
 | 0.0         | 10470      |
-| 300.0       | 5470       |
-| 600.0       | 470        |
+| 175.0       | 9070       | 
+| 350.0       | 7670       |
 
-![Popup Screen Shot](TunerStudio%20Thermister%20Calibration.png)
+It's unlikely that you'll get values this precise - note that the circuit can't step any smaller than about 39 ohms (5 degrees C) - but this broad step is a good enough indicator for the warmup logic.
