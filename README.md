@@ -41,10 +41,10 @@ If you haven't done any electronics tinkering and don't already have a handy set
 
 You'll need 4 connections for external wiring.
 
- - Variable resistance output. Wire to a 470 ohm resister, then through to the MCP4151's P0W pin (6).
+ - Variable resistance output. Wire to a 470 ohm resister, then through to the MCP4151's P0A pin (5).
  - 0-5 volt sensor input. Wire to the Trinket's pin "#4" (2nd analog input).
  - Switched 12v input. Wire directly to the Trinket's "battery" input.
- - Ground. Wire to the Trinket's ground, and the MCP4151's Vss (4) and P0A (5) pins.
+ - Ground. Wire to the Trinket's ground, and the MCP4151's Vss (4) and P0W (6) pins.
 
 Note that the 0-5v sensor input uses the same pin as the Trinket's USB. This means that you cannot connect the USB port and the sensor input at the same time. In practice, this shouldn't be an issue, but if you need to reload code be sure and disconnect the sensor input.
 
