@@ -15,9 +15,11 @@ An analog circuit could be constructed to convert the 0-5 volts into the proper 
 
 ## The Solution
 
+A small, custom, cheap board that translates the CAN-EGT output to the Megasquirt CLT input. No Megasquirt or CAN-EGT modifications necessary.
+
 ### Hardware
 
-The [Adafruit Trinket](https://www.adafruit.com/product/1501) is a $6 processor that is powered by a 5-16 volt input, has an input pin that reads precisely 0-5 volts on an input pin, can communicate with another simple chip via [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface), and can provide that other chip with a stabilized 5 volts. Note that the [Trinket M0](https://www.adafruit.com/product/3500) might work and is radically easier to load code to, but it's only a 3 volt chip and other components would have to be used to translate the 0-5 volt into the 0-3 volt analog input.
+The [Adafruit Trinket](https://www.adafruit.com/product/1501) is a $6 processor that is powered by a 5-16 volt input, has an input pin that reads precisely 0-5 volts on an input pin, can communicate with another simple chip via [SPI](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface), and can provide that other chip with a stabilized 5 volts. Note that the [Trinket M0](https://www.adafruit.com/product/3500) might work and is radically easier to load code to, but it's only a 3 volt chip and other components would have to be added to translate the 0-5 volt into the 0-3 volt analog input.
 
 [Trinket Pinouts](https://learn.adafruit.com/introducing-trinket/pinouts)
 
@@ -29,7 +31,7 @@ The [MCP4151-103E/P](https://www.digikey.com/en/products/detail/microchip-techno
 
 ![pin outs](MCP41X1%20Pinout.png)
 
-(Vdd is 5 volts, Vss is ground)
+Vdd is 3 or 5 volts (2.7 to 5.5) and Vss is ground.
 
 Since Megasquirt does not support a 0 ohm signal, add in a 470 ohm resister in series with the potentiometer. With the Arduino program in this folder, the CLT line will get a 470 ohm signal to represent 600 degrees F and a 10470 ohm signal will represent 0 degrees F.
 
@@ -58,3 +60,15 @@ Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to conne
 ![Final product](CANEGT-2-MS%20final.JPG)
 
 It's small enough that I just slipped it into a heat-shrink tube to seal it up, and it's light enough that I just tuck it in with my car's wiring.
+
+## TunerStudio
+
+On the "Tools" top menu, select "Calibrate Thermister Tables..." and select the "Coolant Temperature Sensor". Set it to use a "3 Point Therm Generator", then fill in the table with the resister values that your little board is providing.
+
+| Temperature | Resistance |
+| ----------- | ---------- |
+| 0.0         | 10470      |
+| 300.0       | 5470       |
+| 600.0       | 470        |
+
+![Popup Screen Shot](TunerStudio%20Thermister%20Calibration.png)
