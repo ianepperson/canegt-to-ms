@@ -56,6 +56,7 @@ The [Fritzing file](CAN-EGT-2-MS.fzz) (open with [Fritzing](https://fritzing.org
 
 Use the [Arduino IDE](https://www.arduino.cc/en/Main.Software) software to connect to the Trinket via USB and load the program. View the file here: [canegt-2-ms.ino](canegt-2-ms.ino), and download it with the [raw link](https://raw.githubusercontent.com/ianepperson/canegt-to-ms/main/canegt-2-ms.ino).
 
+There's a lot of electrical noise in the engine compartment and the input bounces around quite a bit. Since the actual value changes very slowly, the code averages the last several readings (about 2 seconds worth) to the output in order to smooth out the signal.
 
 ## Finished product
 
